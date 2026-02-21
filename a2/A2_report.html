@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="report.css" />
+</head>
+
+<body>
+	<nav><a href="../index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="../contact/index.html">Contact</a>
+        <a href="../resume/index.html">Resume</a>
+		<a href="A2_report.html">Assignment 2</a>
+        <a href="https://github.com/jesss24" target="_blank">GitHub</a>
+    </nav>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Jessica Luu</strong> — <em>jluu24@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Corporate Landlords & Evictions</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>How has corporate and investor-driven buying changed across Boston over time, and when did the biggest shifts happen?
+				If we want to understand how eviction pressures evolve, we first need to identify when investor and corporate activity increased and whether those shifts align with broader market changes.
+				</li>
+				<li>Do investors and corporate buyers target different price ranges or neighborhoods compared to individual homebuyers?
+				Since many households facing eviction are individuals or families in smaller homes or apartments, it is important to examine whether investors concentrate in the same affordable segments where typical homebuyers compete.
+				</li>
+				<li>What is the relationship between corporate landlord presence and the racial/ethnic composition of Boston neighborhoods?
+				The article I read, “In 83 Million Eviction Records…”, discusses how evictions often disproportionately affect vulnerable communities. That made me curious whether corporate ownership overlaps with neighborhoods that are already structurally vulnerable.
+				</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+
+			<figure>
+				<img src="../images/House Prices.jpg" alt="" style="width: 40vw; height: auto;"/>
+				<figcaption>
+				Before comparing buyers, I first needed to understand what the housing market actually looks like overall.
+				This histogram shows all residential sale prices from 2000–2022, capped at $10M. The distribution is heavily right-skewed: most sales are below $2M, but a small number of very expensive properties stretch the tail far to the right.
+				An underlying question is when are these properties being bought and by who?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/SalesCount.jpg" alt="" style="width: 35vw; height: auto;"/>
+				<figcaption>
+				This chart shows total residential sales per year. The early 2000s had the highest volume, followed by a sharp drop around 2008–2009. Activity partially recovered, then dipped again in 2020.
+				We can use these dips to track investor behavior during these periods. This helps reveal whether investors behave differently from individual buyers when the market tightens.
+				This timeline becomes a reference frame for everything that follows.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/Investor Type.jpg" alt="" style="width: 40vw; height: auto;"/>
+				<figcaption>
+				Breaking buyers into categories shows that non-investors still make up the majority of purchases every year. However, investors consistently represent about 20–30% of transactions, and that share drifts slightly upward over time.
+				The shift is gradual which tells us that structural change doesn’t always happen in one visible moment. Small yearly increases can compound over two decades, but aggregate share might hide more subtle changes.
+				A follow up question to this may be: is there a more sensitive signal of investor activity?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/CashSales.jpg" alt="" />
+				<figcaption>
+				Cash purchases are often associated with investors because they don’t rely on mortgage financing. When I track cash purchase rates over time, the pattern becomes much clearer.
+				Cash sales nearly double between 2000 and the early 2010s and remain elevated afterward. Unlike total investor share, this metric shows a sharp shift.
+				We can see that cash rates never fully return to early-2000 levels which suggests the market may have permanently changed in who is able to compete for housing.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/InvestorTypeTren.jpg" alt="" style="width: 50vw; height: auto;"/>
+				<figcaption>
+				Instead of treating all investors as one group, this chart breaks them into small, medium, large, and institutional categories.
+				Small investors consistently make up the largest share of investor purchases. Large and institutional buyers are present but much smaller by count.
+				This complicates the idea that the issue is driven entirely by large corporate actors. In Boston, accumulation appears distributed across many smaller investors. But distributed ownership can still have large aggregate effects, especially in neighborhoods with limited housing supply.
+				Beyond who is buying, how is housing circulating? Are investor-purchased properties returning to individual ownership, or are they staying permanently within the investor ecosystem?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/Inv-InvRate.jpg" alt="" />
+				<figcaption>
+				This chart tracks sales where both buyer and seller are investors.
+				The rate triples over time. By the late 2010s, close to one in three transactions involves no individual homebuyer at all.
+				That’s a major structural shift. When housing circulates within an investor network, it reduces opportunities for owner-occupants to re-enter the market. Even if total sales remain stable, accessibility changes.
+				This becomes one of the most important signals in the dataset.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/PricebyInvestor.jpg" alt="" style="width: 20vw; height: auto;"/>
+				<figcaption>
+				This comparison challenges the assumption that institutional investors are concentrated only in luxury markets.
+				Their purchases cluster in the $500K–$1M range, the same segment where first-time and middle-income buyers compete.
+				That overlap matters since competing with an all-cash institutional buyer is very different from competing with another mortgage-dependent household.
+				The competitive pressure is strongest exactly where affordability is already strained.
+				Does this affordable-segment targeting have a geographic dimension? Are certain zip codes experiencing disproportionately high investor concentration?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/InvestRate.jpg" alt="" style="width: 50vw; height: auto;"/>
+				<figcaption>
+				Investor activity is not evenly distributed.
+
+				Some zip codes show dramatically higher investor purchase rates than others. Mattapan and several downtown zip codes rank near the top, while outer residential neighborhoods show much lower rates.
+
+				This uneven geography suggests that investor pressure is spatially concentrated rather than citywide. That raises a follow-up question: are these patterns stable over time?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/InvRateHeat.jpg" alt=""/>
+				<figcaption>
+				The heatmap shows investor rates across all zip codes and years.
+				The chart reveals two distinct patterns: persistent hotspots, zip codes that have attracted high investor interest throughout the entire period, and city-wide surges visible as vertical bands in certain periods.
+				This helps distinguish between neighborhoods that are consistently investor-heavy versus those that spike during specific windows.
+				We can also see that there is quite a lot of missing data about investor rates for many years and neighborhoods.
+				A question that rises from this is: In neighborhoods with lots of investor buying, are the most anonymous buyers (LLCs) focusing on lower-priced homes?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/LLCRatevZip.jpg" alt="" style="width: 50vw; height: auto;"/>
+				<figcaption>
+				LLC purchases are important because ownership becomes harder to trace.
+				This bubble chart plots each zip code by median sale price against LLC buyer rate, with bubble size proportional to total transaction volume.
+				One outlier, zip code 02205, shows a high LLC rate near a low median price and is likely a data artifact.
+				Looking at the remaining points, LLC activity clusters primarily in the lower-to-mid price range rather than in the highest-priced areas. This reinforces the earlier finding that anonymous corporate buying is not limited to luxury properties.
+				The largest bubbles, meaning the highest-transaction zip codes, generally show moderate LLC rates rather than extreme ones. The consistent presence of LLC buying in more affordable segments suggests that anonymous corporate ownership is a meaningful feature of Boston’s mid-market housing.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/avgcorprate.jpg" alt="" />
+				<figcaption>
+				Switching to the census dataset, this chart ranks neighborhoods by corporate ownership rate.
+				South Boston, Fenway, and Longwood are among the highest. West Roxbury and Hyde Park are among the lowest.
+				This establishes a clear distribution that can now be compared against demographic composition.
+				Before testing the statistical relationship between race and corporate ownership, what does the spatial distribution of racial composition actually look like across the city?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../images/majrac.jpg" alt="" />
+				<figcaption>
+				This map provides geographic context for demographic analysis.
+				Majority-Black neighborhoods cluster in the south and central parts of the city. Majority-White neighborhoods dominate the west and waterfront areas. East Boston shows a strong Hispanic majority.
+				Because racial composition is geographically clustered, any relationship between race and corporate ownership is spatially meaningful rather than randomly distributed.
+				Do neighborhoods with higher Black population shares show systematically higher corporate ownership rates?
+				</figcaption>
+			</figure>
+
+            <figure>
+				<img src="../images/corpvsblack.jpg" alt="" style="width: 50vw; height: auto;"/>
+				<figcaption>
+				When plotting corporate ownership against percent Black population, there is no simple linear relationship.
+				Some predominantly Black neighborhoods have moderate corporate ownership rates, but they are not always the highest in the city.
+				This suggests the relationship is more complex than a direct one-to-one correlation. Corporate ownership does not map perfectly onto racial composition alone.
+				We do not have any eviction data, but I am curious to see if eviction rates are higher among those neighborhoods.
+                Also, do we see a trend with corporate ownership for the Hispanic population, another minority that is largely targeted, or does that also seem uncorrelated?
+				</figcaption>
+			</figure>
+
+            <figure>
+				<img src="../images/corpvshisp.jpg" alt="" style="width: 50vw; height: auto;"/>
+				<figcaption>
+				A similar pattern appears when comparing corporate ownership to Hispanic population share.
+				Neighborhoods with higher Hispanic populations are not automatically the most corporately owned.
+				Again, there is no strong linear trend, which challenges any overly simplistic explanation.
+				I would also be curious to see if these neighborhoods have high evicition rates if we had that data on hand.
+			</figure>
+
+            <figure>
+				<img src="../images/corpownvsocc.jpg" alt="" style="width: 50vw; height: auto;"/>
+				<figcaption>
+				This final chart shows a clearer pattern.
+				As corporate ownership increases, owner-occupancy decreases.
+				This relationship is stronger and more consistent than the racial comparisons. It suggests that corporate acquisition is associated with a structural shift away from owner-occupied housing.
+				While we cannot directly measure displacement, the ownership pattern itself changes.
+			</figure>
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>Across 15 visualizations and two datasets, this analysis shows that Boston’s housing market has gradually shifted toward greater investor and corporate participation over the past two decades.
+			The biggest signal is not a dramatic spike in investor share, but a structural change in how properties circulate. Cash purchases nearly doubled and remained elevated. Investor-to-investor transactions tripled, meaning a growing share of housing never returns to individual ownership.
+			Geographically, investor activity is uneven. Certain zip codes show persistent concentration, while others remain relatively insulated. Price analysis reveals that institutional and LLC buyers are active in the $500K–$1M range, overlapping with first-time buyers rather than operating exclusively in luxury markets.
+			Corporate ownership does not show a simple linear relationship with Black or Hispanic population share. However, corporate ownership is strongly associated with lower owner-occupancy rates, suggesting structural changes in neighborhood housing composition.
+			There are limitations with the available data. The datasets do not include eviction records, so displacement cannot be directly measured, corporate classification relies on name matching, which may introduce minor inaccuracies, and demographic data is static and does not capture neighborhood change over time.
+			Even with those limitations, the patterns are consistent across time, geography, price, and ownership structure. The overall picture indicates gradual accumulation, a steady reshaping of who owns Boston housing and who has access to it.
+			</p>
+		</section>
+	</main>
+</body>
+</html>
